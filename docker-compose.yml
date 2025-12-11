@@ -7,8 +7,6 @@ services:
       - "8000:8000"
     depends_on:
       - redis
-    volumes:
-      - ./src/:/app/src/
     networks:
       - telephone_fastapi_redis_network
   redis:

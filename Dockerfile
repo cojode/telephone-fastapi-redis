@@ -16,4 +16,4 @@ RUN groupadd -g 1001 appgroup && \
 WORKDIR /app
 COPY --from=build --chown=appuser:appgroup /app .
 USER appuser
-ENTRYPOINT ["python", "-m", "uvicorn", "src.app:get_app", "--factory", "--reload", "--host", "0.0.0.0", "--port", "8000"]
+ENTRYPOINT ["python", "-m", "uvicorn", "src.app:get_app", "--factory", "--host", "0.0.0.0", "--port", "8000"]
