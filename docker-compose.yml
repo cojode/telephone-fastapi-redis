@@ -1,0 +1,22 @@
+services:
+  api:
+    build: .
+    command:
+    env_file: ".env"
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+    volumes:
+      - ./src/:/app/src/
+    networks:
+      - telephone_fastapi_redis_network
+  redis:
+    image: redis:8-alpine
+    ports:
+      - "6379:6379"
+    networks:
+      - telephone_fastapi_redis_network
+
+networks:
+  telephone_fastapi_redis_network:
